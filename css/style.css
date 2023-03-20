@@ -40,9 +40,9 @@ body {
 
 body {
     line-height: 1;
-    /* font-family: 'Lato'; */
-    font-size: 25px;
-    color: #F2F2F2;
+    font-family: 'Roboto';
+    font-size: 16px;
+    color: black;
 
 
 }
@@ -71,4 +71,55 @@ body {
     margin: 0 auto;
     padding: 0 15px;
 
+}
+
+.todo {
+    background-color: #e2f1f7bd;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    box-shadow: 5px 5px 20px #042232;
+    margin: 50px;
+    border-radius: 20px;
+}
+
+.todo__input {
+    border: 2px solid #042232;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: #e2f1f7bd;
+}
+
+.todo__input:checked {
+    border: 1px solid #9dce16;
+}
+
+.todo__input::placeholder {
+    color: #042232;
+    font-size: 16px;
+
+}
+
+.todo__button {
+    border: 1px solid #042232;
+    padding: 10px 20px;
+    color: #000000;
+    font-size: 16px;
+    border-radius: 5px;
+    background-color: #e2f1f7bd;
+}
+
+.todo__out {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.todo__item {
+    background-color: #e2f1f7bd;
+    border: 1px solid #042232;
+    padding: 10px 20px;
+    text-align: center;
+    border-radius: 5px;
 }
