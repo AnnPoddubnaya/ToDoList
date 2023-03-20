@@ -84,16 +84,21 @@ body {
     border-radius: 20px;
 }
 
+@media (max-width: 420px) {
+    .todo {
+        margin: 50px 5px;
+
+    }
+}
+
 .todo__input {
-    border: 2px solid #042232;
+    border: 2px solid #05369ad0;
     padding: 10px 20px;
     border-radius: 5px;
     background-color: #e2f1f7bd;
 }
 
-.todo__input:checked {
-    border: 1px solid #9dce16;
-}
+.todo__input:checked {}
 
 .todo__input::placeholder {
     color: #042232;
@@ -104,10 +109,10 @@ body {
 .todo__button {
     border: 1px solid #042232;
     padding: 10px 20px;
-    color: #000000;
+    color: #ffffff;
     font-size: 16px;
     border-radius: 5px;
-    background-color: #e2f1f7bd;
+    background-color: #05369ad0;
 }
 
 .todo__out {
@@ -117,9 +122,10 @@ body {
 }
 
 .todo__item {
-    background-color: #e2f1f7bd;
+    background-color: #99c0df9f;
     border: 1px solid #042232;
     padding: 10px 20px;
-    text-align: center;
+    text-align: left;
     border-radius: 5px;
+    color: #05369ad0;
 }
