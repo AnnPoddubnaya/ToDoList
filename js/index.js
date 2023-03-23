@@ -12,21 +12,28 @@ if (localStorage.getItem('taskToDo')) {
 buttonToDo.addEventListener('click', createTodo);
 containerToDo.addEventListener('click', deleteToDo);
 containerToDo.addEventListener('click', doneToDo);
+containerToDo.addEventListener('click', editToDo);
 
 function createTodo(event) {
-    event.preventDefault();
+    // event.preventDefault();
     let todo = document.createElement('div');
     todo.classList.add('todo__item');
 
-    let li = document.createElement("div");
-    li.innerText = `${inputToDo.value}`;
-    li.classList.add('todo__text');
-    todo.appendChild(li);
+    let div = document.createElement("div");
+    div.innerText = `${inputToDo.value}`;
+    div.classList.add('todo__text');
+    todo.appendChild(div);
 
     let buttonDone = document.createElement('button');
     buttonDone.innerHTML = '<i class="fa-solid fa-check"></i>';
     buttonDone.classList.add('todo__done');
     todo.appendChild(buttonDone);
+
+    let buttonEdit = document.createElement('button');
+    buttonEdit.innerHTML = '<i class="fa-solid fa-edit"></i>';
+    buttonEdit.dataset.action = 'edit';
+    buttonEdit.classList.add('todo__edit');
+    todo.appendChild(buttonEdit);
 
     let buttonDelete = document.createElement('button');
     buttonDelete.innerHTML = '<i class="fa-solid fa-circle-minus"></i>';
@@ -60,10 +67,35 @@ function doneToDo(event) {
 function saveLocalStorage() {
     localStorage.setItem('taskToDo', todoList.innerHTML);
 }
+
 function editToDo(event) {
-    if (event.target.classList.contains('todo__text')) {
-        console.log('it is work')
+    console.log(event.target.dataset)
+    if (event.target.dataset.action === 'edit') {
+        const li = event.target.closest('.todo__item');
+        console.log(li);
+        const div = li.firstElementChild;
+        const input = document.createElement('input');
+        input.classList.add('todo__input-edit')
+        input.type = 'text';
+        input.value = div.textContent;
+        li.insertBefore(input, div);
+        li.removeChild(div);
+        input.focus();
+        event.target.dataset.action = 'save';
+        // event.target.textContent = 'save';
+
+    } else if (event.target.dataset.action === 'save') {
+        const li = event.target.closest('.todo__item');
+        const input = li.firstElementChild;
+        const div = document.createElement('div');
+        div.classList.add('todo__text');
+        div.textContent = input.value;
+        li.insertBefore(div, input);
+        li.removeChild(input);
+
+        event.target.dataset.action = 'edit';
+        // event.target.textContent = 'edit';
     }
-    // console.log(event)
+    saveLocalStorage();
 }
-editToDo()
+
