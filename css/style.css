@@ -69,7 +69,7 @@ body {
 [class*="__container"] {
     max-width: 1410px;
     margin: 0 auto;
-    padding: 0 15px;
+
 
 }
 
@@ -91,18 +91,26 @@ body {
     }
 }
 
+.todo__form {
+    display: flex;
+}
+
 .todo__input {
     border: 2px solid #05369ad0;
     padding: 10px 20px;
-    border-radius: 5px;
-    background-color: #e2f1f7bd;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    /* background-color: #fff; */
+    min-width: 240px;
+    min-height: 50px;
 }
 
-.todo__input:checked {}
+
 
 .todo__input::placeholder {
     color: #042232;
     font-size: 16px;
+
 
 }
 
@@ -111,21 +119,89 @@ body {
     padding: 10px 20px;
     color: #ffffff;
     font-size: 16px;
-    border-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
     background-color: #05369ad0;
+    max-width: 100px;
 }
 
-.todo__out {
+.todo__button:hover {
+    color: #05369ad0;
+    background-color: #ffff;
+    transition: all 0.7s;
+
+}
+
+.todo__container {
     display: flex;
     flex-direction: column;
     gap: 10px;
+
 }
 
 .todo__item {
-    background-color: #99c0df9f;
-    border: 1px solid #042232;
+    display: flex;
+
+
+}
+
+.todo__text {
+    background-color: #fff;
+    /* border: 1px solid #042232; */
     padding: 10px 20px;
     text-align: left;
-    border-radius: 5px;
-    color: #05369ad0;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    color: #000;
+    width: 200px;
+}
+
+.todo__delete {
+    background-color: #fff;
+    /* border-left: 1px solid #000; */
+    padding: 10px 20px;
+    text-align: left;
+    color: red;
+    max-width: 50px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.todo__delete:hover {
+    background-color: red;
+    color: #fff;
+    transition: all 0.7s;
+}
+
+.todo__delete i {
+    pointer-events: none;
+}
+
+.todo__done {
+    background-color: #fff;
+    /* border: 1px solid #09e04ed0; */
+    padding: 10px 20px;
+    text-align: left;
+    color: #09e04ed0;
+    max-width: 50px;
+
+}
+
+.todo__done:hover {
+    background-color: #09e04ed0;
+    color: #fff;
+
+}
+
+.todo__done i {
+    pointer-events: none;
+}
+
+.none {
+    display: none;
+}
+
+.done {
+    text-decoration: line-through;
+    opacity: 0.3;
 }
