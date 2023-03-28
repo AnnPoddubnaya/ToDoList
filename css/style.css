@@ -40,8 +40,9 @@ body {
 
 body {
     line-height: 1;
-    font-family: 'Roboto';
-    font-size: 16px;
+    font-family: 'Ubuntu';
+    font-style: normal;
+
     color: black;
 
 
@@ -52,121 +53,147 @@ body {
     overflow: hidden;
     display: flex;
     flex-direction: column;
-
     justify-content: space-between;
 
+
 }
 
 
 
-[class*="__container"] {
-    max-width: 1410px;
+.wrapper__container {
     margin: 0 auto;
-
-
+    width: 1440px;
+    min-height: 1024px;
+    background-color: rgba(63, 114, 175, 1);
 }
+
+
 
 .todo {
-    background-color: #e2f1f7bd;
-    padding: 50px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    box-shadow: 5px 5px 20px #042232;
-    margin: 50px;
+    margin: 0 auto;
+    position: relative;
+    background: #F9F7F7;
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.25);
     border-radius: 20px;
+    width: 600px;
+    min-height: 450px;
+    margin-top: 56px;
+    padding: 20px 55px 85px 55px;
 }
 
-@media (max-width: 420px) {
-    .todo {
-        margin: 50px 5px;
+.todo__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 
-    }
+.todo__title {
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 46px;
+    color: #112D4E;
+    margin-bottom: 10px;
+
 }
 
 .todo__form {
     display: flex;
+    position: relative;
 }
 
 .todo__input {
-    border: 2px solid #05369ad0;
-    padding: 10px 20px;
+    width: 250px;
+    height: 32px;
+    background: #DBE2EF;
+    border: 1px solid rgba(177, 177, 177, 0.4);
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
-    /* background-color: #fff; */
-    min-width: 290px;
-    min-height: 50px;
+    padding: 9px 0px 9px 11px;
+    margin-bottom: 15px;
 }
 
 
 
 .todo__input::placeholder {
-    color: #042232;
-    font-size: 16px;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    color: #7B7B7B;
+}
+
+.todo__contant::before {
+    display: block;
+    content: "";
+    width: 100%;
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 .todo__button {
-    border: 1px solid #042232;
-    padding: 10px 20px;
-    color: #ffffff;
-    font-size: 16px;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
-    background-color: #05369ad0;
-    max-width: 100px;
+    width: 45px;
+    height: 32px;
+    background: #AAAAAA;
+    border-radius: 0px 5px 5px 0px;
 }
 
 .todo__button:hover {
     color: #05369ad0;
     background-color: #ffff;
     transition: all 0.7s;
-
 }
 
-.todo__container {
+.todo__contant {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    margin-top: 14px;
+    gap: 31px;
 }
 
 .todo__item {
     display: flex;
-    min-height: 50px;
-
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+    width: 490px;
+    height: 55px;
+    background: #DBE2EF;
+    border-radius: 5px;
 }
 
 .todo__text {
-    padding: 10px 20px;
-    text-align: left;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
-    color: #000;
-    width: 200px;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    color: #000000;
+    text-transform: lowercase;
+    padding: 21px;
     white-space: nowrap;
     overflow: hidden;
-    background: #fc0;
-    padding: 5px;
     text-overflow: ellipsis;
-    cursor: pointer;
+}
+
+.todo__buttons {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
 
 }
 
 .todo__delete {
-    background-color: #fff;
-    padding: 10px 20px;
-    text-align: left;
-    color: red;
-    max-width: 50px;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
-    align-items: center;
+    width: 24px;
+    height: 24px;
+    border: 1px solid #7D7C7C;
+    border-radius: 5px;
 }
 
 .todo__delete:hover {
-    background-color: red;
-    color: #fff;
+    background-color: #fff;
+    color: red;
     transition: all 0.7s;
     cursor: pointer;
+    border: 1px solid red;
 }
 
 .todo__delete i {
@@ -174,18 +201,17 @@ body {
 }
 
 .todo__done {
-    background-color: #fff;
-    padding: 10px 20px;
-    text-align: left;
-    color: #09e04ed0;
-    max-width: 50px;
-    align-items: center;
+    width: 24px;
+    height: 24px;
+    border: 1px solid #7D7C7C;
+    border-radius: 5px;
 }
 
 .todo__done:hover {
-    background-color: #09e04ed0;
-    color: #fff;
+    background-color: #fff;
+    color: #09e04ed0;
     cursor: pointer;
+    border: 1px solid #09e04ed0;
 
 }
 
@@ -194,17 +220,17 @@ body {
 }
 
 .todo__edit {
-    display: flex;
-    background-color: #fbfbfb;
-    padding: 10px 20px;
-    align-items: center;
-    color: #fc0;
-    max-width: 50px;
+    width: 24px;
+    height: 24px;
+    border: 1px solid #7D7C7C;
+    border-radius: 5px;
 }
 
 .todo__edit:hover {
-    background-color: #fc0;
-    color: #fbfbfb;
+    background-color: #fff;
+    color: #fc0;
+    cursor: pointer;
+    border: 1px solid #fc0;
 }
 
 .todo__edit i {
@@ -217,9 +243,12 @@ body {
 }
 
 .todo__input-edit {
-    border: 2px solid #05369ad0;
+    border: 2px solid black;
     padding: 10px 20px;
-    width: 200px;
+    width: 600px;
+    min-height: 450px;
+    overflow: hidden;
+
 
 }
 
@@ -227,7 +256,74 @@ body {
     display: none;
 }
 
+.block {
+    display: block;
+}
+
 .done .todo__text {
     text-decoration: line-through;
     opacity: 0.3;
+}
+
+textarea {
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    color: #000000;
+}
+
+/* ========================================= */
+
+@media (max-width: 1024px) {
+    .wrapper__container {
+        width: 1024px;
+    }
+}
+
+@media (max-width: 768px) {
+    .wrapper__container {
+        width: 768px;
+    }
+}
+
+@media (max-width: 425px) {
+    .wrapper__container {
+        width: 425px;
+    }
+
+    .todo {
+        width: 350px;
+        min-height: 450px;
+        padding: 20px 20px 85px 20px;
+    }
+
+    .todo__item {
+        width: 300px;
+        height: 55px;
+    }
+
+}
+
+@media (max-width: 320px) {
+    .wrapper__container {
+        width: 320px;
+    }
+
+    .todo__input {
+        width: 230px;
+    }
+
+    .todo {
+        width: 300px;
+        min-height: 250px;
+        padding: 10px 10px 45px 10px;
+    }
+
+    .todo__item {
+        width: 280px;
+        height: 55px;
+    }
+
 }

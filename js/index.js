@@ -1,7 +1,7 @@
 
 const inputToDo = document.querySelector('.todo__input');
 const buttonToDo = document.querySelector('.todo__button');
-const todoList = document.querySelector('.todo__container');
+const todoList = document.querySelector('.todo__contant');
 const containerToDo = document.querySelector('.todo');
 
 
@@ -15,7 +15,7 @@ containerToDo.addEventListener('click', doneToDo);
 containerToDo.addEventListener('click', editToDo);
 
 function createTodo(event) {
-    // event.preventDefault();
+
     let todo = document.createElement('div');
     todo.classList.add('todo__item');
 
@@ -24,21 +24,26 @@ function createTodo(event) {
     div.classList.add('todo__text');
     todo.appendChild(div);
 
+    let buttons = document.createElement('div');
+    buttons.classList.add('todo__buttons');
+    todo.appendChild(buttons);
+
+
     let buttonDone = document.createElement('button');
     buttonDone.innerHTML = '<i class="fa-solid fa-check"></i>';
     buttonDone.classList.add('todo__done');
-    todo.appendChild(buttonDone);
+    buttons.appendChild(buttonDone);
+
+    let buttonDelete = document.createElement('button');
+    buttonDelete.innerHTML = '<i class="fa-solid fa-circle-minus"></i>';
+    buttonDelete.classList.add('todo__delete');
+    buttons.appendChild(buttonDelete);
 
     let buttonEdit = document.createElement('button');
     buttonEdit.innerHTML = '<i class="fa-solid fa-edit"></i>';
     buttonEdit.dataset.action = 'edit';
     buttonEdit.classList.add('todo__edit');
-    todo.appendChild(buttonEdit);
-
-    let buttonDelete = document.createElement('button');
-    buttonDelete.innerHTML = '<i class="fa-solid fa-circle-minus"></i>';
-    buttonDelete.classList.add('todo__delete');
-    todo.appendChild(buttonDelete);
+    buttons.appendChild(buttonEdit);
 
     if (inputToDo.value = '') {
         alert('Please enter some text')
@@ -64,38 +69,50 @@ function doneToDo(event) {
     }
     saveLocalStorage();
 }
+
 function saveLocalStorage() {
     localStorage.setItem('taskToDo', todoList.innerHTML);
 }
 
+
+
+
 function editToDo(event) {
-    console.log(event.target.dataset)
     if (event.target.dataset.action === 'edit') {
         const li = event.target.closest('.todo__item');
-        console.log(li);
+        // console.log(li);
         const div = li.firstElementChild;
-        const input = document.createElement('input');
+        console.log(div);
+        const input = document.createElement('textarea');
         input.classList.add('todo__input-edit')
+        input.style.position = 'absolute';
+        input.style.left = '0px';
+        input.style.top = '0px';
+
+        const edit = li.lastElementChild;
+        edit.style.position = 'absolute';
+        edit.style.right = '0px';
+        // edit.style.background = ' rgb(255, 204, 0)';
+        edit.style.top = '0px';
         input.type = 'text';
         input.value = div.textContent;
         li.insertBefore(input, div);
         li.removeChild(div);
         input.focus();
         event.target.dataset.action = 'save';
-        // event.target.textContent = 'save';
+
 
     } else if (event.target.dataset.action === 'save') {
         const li = event.target.closest('.todo__item');
         const input = li.firstElementChild;
         const div = document.createElement('div');
+        const edit = li.lastElementChild;
         div.classList.add('todo__text');
         div.textContent = input.value;
         li.insertBefore(div, input);
         li.removeChild(input);
-
         event.target.dataset.action = 'edit';
-        // event.target.textContent = 'edit';
+        edit.style.position = 'static';
     }
     saveLocalStorage();
 }
-
